@@ -71,7 +71,7 @@ Make sure the following are installed:
 ## 1. Clone Repository
 
 ```bash
-git clone <your-repository-url>
+git remote add origin https://github.com/sahilchunara-1/atDrive-coding-assessment.git
 cd atDriveProject
 ```
 
