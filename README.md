@@ -81,6 +81,11 @@ cd atDriveProject
 
 Navigate to backend:
 
+```bash
+cd backend
+npm install
+```
+
 > ⏳ **First-time setup note:** Running `npm install` in `backend/` for the first time may take a few extra minutes. This is because `mongodb-memory-server` (a testing-only dependency) downloads a real MongoDB binary so tests run in full isolation from any external database. This only happens once — subsequent installs are fast.
 >
 > If you only want to run the application (not the test suite), you can skip this entirely:
@@ -88,11 +93,6 @@ Navigate to backend:
 > npm install --omit=dev
 > ```
 
-
-```bash
-cd backend
-npm install
-```
 
 Create a `.env` file inside the `backend` folder:
 
