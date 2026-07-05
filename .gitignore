@@ -1,0 +1,11 @@
+backend/node_modules/
+frontEnd/node_modules/
+
+backend/.env
+
+frontEnd/dist/
+frontEnd/.angular/
+
+*.log
+.vscode/
+.idea/

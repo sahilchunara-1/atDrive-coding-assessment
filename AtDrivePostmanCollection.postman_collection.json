@@ -1,0 +1,417 @@
+{
+  "info": {
+    "_postman_id": "3d3fed6a-f62f-429b-b821-672f390080e8",
+    "name": "AtDrivePostmanCollection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56384684",
+    "_collection_link": "https://go.postman.co/collection/56384684-3d3fed6a-f62f-429b-b821-672f390080e8?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Get-All-Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}products/getAllProducts",
+              "host": [
+                "{{BASE_URL}}products"
+              ],
+              "path": [
+                "getAllProducts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add-Product",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Product 1\",\r\n    \"price\" : 1000,\r\n    \"description\" : \"product1 description\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}products/addProduct",
+              "host": [
+                "{{BASE_URL}}products"
+              ],
+              "path": [
+                "addProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get-Product-By-Id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"product1\",\r\n    \"price\" : 25000,\r\n    \"description\" : \"product1 description\"\r\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}products/getProductById/6a4a2348ceed52f4dd295324",
+              "host": [
+                "{{BASE_URL}}products"
+              ],
+              "path": [
+                "getProductById",
+                "6a4a2348ceed52f4dd295324"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update-Product-By-Id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"product2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}products/updateProduct/6a4a2348ceed52f4dd295323",
+              "host": [
+                "{{BASE_URL}}products"
+              ],
+              "path": [
+                "updateProduct",
+                "6a4a2348ceed52f4dd295323"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete-Product-By-Id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}products/deleteProduct/6a4a2348ceed52f4dd295323",
+              "host": [
+                "{{BASE_URL}}products"
+              ],
+              "path": [
+                "deleteProduct",
+                "6a4a2348ceed52f4dd295323"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "User-Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"sahil\",\r\n    \"password\" : \"sahil@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users/login",
+              "host": [
+                "{{BASE_URL}}users"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User-Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"sahil\",\r\n    \"password\": \"sahil@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}users/register",
+              "host": [
+                "{{BASE_URL}}users"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Create-Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzYWhpbCIsImlhdCI6MTc4MzI1MTEwMiwiZXhwIjoxNzgzMzM3NTAyfQ.GsehhVhJjFqt1v_aow-UL6HjvPiC35c-5Cpb8y61kCo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productIds\": [\"6a4921f67c8f86ece80a93cb\", \"6a4921f67c8f86ece80a93cb\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/orders/createOrder",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "orders",
+                "createOrder"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get-All-Orders",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzYWhpbCIsImlhdCI6MTc4MzI1MTEwMiwiZXhwIjoxNzgzMzM3NTAyfQ.GsehhVhJjFqt1v_aow-UL6HjvPiC35c-5Cpb8y61kCo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}orders/getAllOrders",
+              "host": [
+                "{{BASE_URL}}orders"
+              ],
+              "path": [
+                "getAllOrders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get-Order-By-Id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzYWhpbCIsImlhdCI6MTc4MzI1MTEwMiwiZXhwIjoxNzgzMzM3NTAyfQ.GsehhVhJjFqt1v_aow-UL6HjvPiC35c-5Cpb8y61kCo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}orders/getOrderById/6a4a44a6065a500087e74551",
+              "host": [
+                "{{BASE_URL}}orders"
+              ],
+              "path": [
+                "getOrderById",
+                "6a4a44a6065a500087e74551"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update-Order-By-Id",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzYWhpbCIsImlhdCI6MTc4MzI1MTEwMiwiZXhwIjoxNzgzMzM3NTAyfQ.GsehhVhJjFqt1v_aow-UL6HjvPiC35c-5Cpb8y61kCo",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productIds\" : [\"6a4a485866cff01e25f11c62\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}orders/updateOrder/6a4a44a6065a500087e74551",
+              "host": [
+                "{{BASE_URL}}orders"
+              ],
+              "path": [
+                "updateOrder",
+                "6a4a44a6065a500087e74551"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete-Order-By-Id",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJzYWhpbCIsImlhdCI6MTc4MzI1MTEwMiwiZXhwIjoxNzgzMzM3NTAyfQ.GsehhVhJjFqt1v_aow-UL6HjvPiC35c-5Cpb8y61kCo",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}orders/deleteOrder/6a4a44a6065a500087e74551",
+              "host": [
+                "{{BASE_URL}}orders"
+              ],
+              "path": [
+                "deleteOrder",
+                "6a4a44a6065a500087e74551"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Weather",
+      "item": [
+        {
+          "name": "GetWeatherData",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}weather?lat=23.0225&lon=72.5714",
+              "host": [
+                "{{BASE_URL}}weather"
+              ],
+              "query": [
+                {
+                  "key": "lat",
+                  "value": "23.0225"
+                },
+                {
+                  "key": "lon",
+                  "value": "72.5714"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "HealthApi",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": ""
+    }
+  ]
+}

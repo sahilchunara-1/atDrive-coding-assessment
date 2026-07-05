@@ -1,0 +1,137 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Add Product</h4>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <!-- Product Name -->
+            <div class="mb-3">
+              <label class="form-label">Product Name</label>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter product name"
+              />
+
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  f['name'].touched &&
+                  f['name'].errors?.['required']
+                "
+              >
+                Product name is required.
+              </div>
+
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  f['name'].touched &&
+                  f['name'].errors?.['minlength']
+                "
+              >
+                Minimum 3 characters required.
+              </div>
+            </div>
+
+            <!-- Price -->
+            <div class="mb-3">
+              <label class="form-label">Price</label>
+
+              <input
+                type="number"
+                class="form-control"
+                formControlName="price"
+                placeholder="Enter price"
+              />
+
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  f['price'].touched &&
+                  f['price'].errors?.['required']
+                "
+              >
+                Price is required.
+              </div>
+
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  f['price'].touched &&
+                  f['price'].errors?.['min']
+                "
+              >
+                Price must be greater than zero.
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-4">
+              <label class="form-label">Description</label>
+
+              <textarea
+                rows="4"
+                class="form-control"
+                formControlName="description"
+                placeholder="Enter product description"
+              >
+              </textarea>
+
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  f['description'].touched &&
+                  f['description'].errors?.['required']
+                "
+              >
+                Description is required.
+              </div>
+
+              <div
+                class="text-danger mt-1"
+                *ngIf="
+                  f['description'].touched &&
+                  f['description'].errors?.['minlength']
+                "
+              >
+                Minimum 10 characters required.
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-end gap-2">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                [routerLink]="['/']"
+              >
+                Cancel
+              </button>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="loading"
+              >
+                <span
+                  *ngIf="loading"
+                  class="spinner-border spinner-border-sm me-2"
+                >
+                </span>
+
+                {{ loading ? 'Saving...' : 'Save Product' }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
